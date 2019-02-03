@@ -1,0 +1,16 @@
+--- 
+language: generic
+install: true
+deploy:
+  # deploy develop to the staging environment
+  - provider: script
+    script: mvn -f ./POC-Deploy/pom.xml clean package deploy -Dcloudhub.username=$CLOUDHUB_USERNAME -Dcloudhub.password=$CLOUDHUB_PWD -Dcloudhub.environment=Staging -Dmaster.key=$MASTER_KEY -DenvCode=stg- -DmuleDeploy
+    on:
+      branch: develop
+  # deploy master to production
+  - provider: script
+    script: mvn -f ./POC-Deploy/pom.xml clean package deploy -Dcloudhub.username=$CLOUDHUB_USERNAME -Dcloudhub.password=$CLOUDHUB_PWD -Dcloudhub.environment=Prep -Dmaster.key=$MASTER_KEY -DenvCode= -DmuleDeploy
+    on:
+      branch: master
+  # deploy to other brances
+  # mvn -f ./POC-Deploy/pom.xml clean package deploy -Dcloudhub.username=$CLOUDHUB_USERNAME -Dcloudhub.password=$CLOUDHUB_PWD -Dcloudhub.environment=Sandbox -Dmaster.key=$MASTER_KEY -DenvCode=dev- -DmuleDeploy
