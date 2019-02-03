@@ -1,7 +1,7 @@
 --- 
 language: generic
 install: true
-script: mvn clean package
+script: mvn -f ./POC-Deploy/pom.xml clean package
 deploy:
   # deploy develop to the staging environment
   - provider: script
