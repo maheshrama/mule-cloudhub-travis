@@ -1,6 +1,7 @@
 --- 
 language: generic
 install: true
+script: mvn clean package
 deploy:
   # deploy develop to the staging environment
   - provider: script
