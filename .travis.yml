@@ -1,7 +1,7 @@
 --- 
 language: generic
 install: true
-script: mvn -f ./POC-Deploy/pom.xml clean package
+script: mvn -f ./POC-Deploy/pom.xml clean package -Dcloudhub.username= -Dcloudhub.password= -Dcloudhub.environment=Sandbox -DenvCode=
 deploy:
   # deploy develop to the staging environment
   - provider: script
