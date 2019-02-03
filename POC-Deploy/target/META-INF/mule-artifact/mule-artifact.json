@@ -1,0 +1,28 @@
+{
+  "configs": [
+    "poc_deploy.xml"
+  ],
+  "secureProperties": [
+    "env"
+  ],
+  "redeploymentEnabled": true,
+  "name": "com.lululemon:deploy_poc:1.0.0-SNAPSHOT",
+  "minMuleVersion": "4.1.3",
+  "requiredProduct": "MULE",
+  "classLoaderModelLoaderDescriptor": {
+    "id": "mule",
+    "attributes": {
+      "exportedPackages": [],
+      "exportedResources": [
+        "log4j2.xml",
+        "PREP.properties",
+        "Sandbox.properties",
+        "Staging.properties"
+      ]
+    }
+  },
+  "bundleDescriptorLoader": {
+    "id": "mule",
+    "attributes": {}
+  }
+}
